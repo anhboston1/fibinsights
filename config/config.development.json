@@ -1,0 +1,6 @@
+{
+    "databaseConfig": {
+        "host": "anhboston1:ph9729ng@ds147044.mlab.com:47044",
+        "database": "realestate"
+    }
+}

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row grid-container">
+        <div class="col-md-10">
+            <div class="table">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th (click)="sort('name')">Name</th>
+                            <th (click)="sort('phone')">Phone</th>
+                            <th (click)="sort('fundsavailable')">Buying In</th>
+                            <th (click)="sort('interestrate')">Cash Available</th>
+                            <th (click)="sort('lendingin')">Buying Criteria </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let privatelender of privatelenders;trackBy:trackby.privatelender">
+                            <td  width="5%"><img src="images/male.png"
+                                    class="card-image" alt="privatelender Image" /></td>
+                            <td  width="15%"><a [routerLink]="['/privatelenders',privatelender._id]">{{ privatelender.name | capitalize }}</a></td>
+                            <td width="15%">{{ privatelender.phone | capitalize }}</td>
+                            <td width="10%">{{ privatelender.fundsavailable}}</td>
+                            <td width="15%">{{ privatelender.interestrate}}</td>
+                            <td width="40%">{{ privatelender.lendingin }}</td>
+                        </tr>
+                        <tr *ngIf="!privatelenders.length">
+                            <td>&nbsp;</td>
+                            <td colspan="6">No Records Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

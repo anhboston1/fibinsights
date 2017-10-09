@@ -1,0 +1,74 @@
+
+<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-lock"></span> Sign Up</h3>
+        </header>
+        <br />
+
+        <form [formGroup]="signupForm" (ngSubmit)="submit(signupForm)" class="login-form" novalidate>
+
+            <div class="login">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        First Name:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="firstName" name="firstName" class="form-control" formControlName="firstName" />
+
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Last Name:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="lastName" name="lastName" class="form-control" formControlName="lastName" />
+
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Email:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="email" name="email" class="form-control" formControlName="email" />
+                        <div class="alert alert-danger" [hidden]="signupForm.controls.email.untouched || signupForm.controls.email.valid">
+                            A valid email address is required
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Password:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="password" name="password" class="form-control" formControlName="password" />
+                        <div class="alert alert-danger" [hidden]="signupForm.controls.password.untouched || signupForm.controls.password.valid">
+                            Password is required (6 or more characters with at least one number)
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success" [disabled]="!signupForm.valid">Submit</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" *ngIf="errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
